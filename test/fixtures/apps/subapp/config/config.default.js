@@ -7,3 +7,7 @@ exports.subApp = {
     'virtualhost.subapp.com': 'demo.subapp.com',
   },
 };
+
+exports.notfound = {
+  pageUrl: 'http://demo.subapp.com/404.html',
+};

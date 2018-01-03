@@ -1,14 +1,10 @@
-/**
- * 子应用扩展
- */
-
 'use strict';
 
 const urlparse = require('url').parse;
 const qsparse = require('querystring').parse;
 
 module.exports = function(options, app) {
-  const cookieField = '__subapp';
+  const cookieField = '__app';
 
   // 优先级：
   // query > cookie > referer
