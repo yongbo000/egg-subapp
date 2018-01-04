@@ -58,7 +58,7 @@ describe('test/subapp.test.js', () => {
         .expect(301);
     });
 
-    it('support promise middleware', () => {
+    it('support async middleware', () => {
       return app.httpRequest()
         .get('/indexAsync?__app=demo.subapp.com')
         .expect(/hi, jambo/)
@@ -96,6 +96,23 @@ describe('test/subapp.test.js', () => {
       return app.httpRequest()
         .get('/indexAsync?__app=virtualhost.subapp.com')
         .expect(/hi, jambo/)
+        .expect(200);
+    });
+  });
+
+  describe('second.subapp.com should work', () => {
+    it('support async middleware', () => {
+      return app.httpRequest()
+        .get('/indexAsync?__app=second.subapp.com')
+        .expect(/hi, jambo/)
+        .expect(200);
+    });
+    it('should ctx.subAppService.findUser work', () => {
+      return app.httpRequest()
+        .get('/findUser?__app=second.subapp.com')
+        .expect({
+          name: 'jambo',
+        })
         .expect(200);
     });
   });

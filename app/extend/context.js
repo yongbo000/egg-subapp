@@ -14,4 +14,8 @@ module.exports = {
     }, opts);
     return this.cookies.set(key, value, opts);
   },
+
+  get subAppService() {
+    return this[this.subApp.name + '.subAppServices'];
+  },
 };
