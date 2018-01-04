@@ -31,6 +31,7 @@ npm i egg-subapp --save
 ## 依赖的插件
 
 - view
+- nunjucks
 
 ## 开启插件
 
@@ -58,6 +59,20 @@ app
        |- ...
  |- demo2.subapp.com
     |- ...
+```
+
+> 各个站点的环境是隔离的，每个站点里定义的controller、middleware、service仅能被本站点的使用。
+
+`controller、middleware的引用与egg里使用无异`，需要注意的是在controller里对service的使用，如下
+
+```
+class HomeController extends Controller {
+  async findUser() {
+    const { ctx } = this;
+    // 通过ctx.subAppService获取到service上的实例
+    ctx.body = await ctx.subAppService.user.findUser();
+  }
+}
 ```
 
 ## 详细配置
