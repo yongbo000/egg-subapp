@@ -84,6 +84,10 @@ exports.subApp = {
     // 自定义域名映射
     'custom-domain.com': 'demo.subapp.com',
   },
+  middleware: {
+    // 配置单个站点的全局前置中间件
+    // 'demo.subapp.com': [ needLogin, ... ],
+  },
 };
 ```
 

@@ -120,7 +120,10 @@ describe('test/subapp.test.js', () => {
         .expect({
           name: 'jambo',
         })
-        .expect(200);
+        .expect(200)
+        .expect(res => {
+          assert(res.headers.hasOwnProperty(app.config.globalMw.header) === false);
+        });
     });
   });
 });
