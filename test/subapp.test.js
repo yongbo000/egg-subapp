@@ -1,6 +1,7 @@
 'use strict';
 
 const mock = require('egg-mock');
+const assert = require('assert');
 
 describe('test/subapp.test.js', () => {
   let app;
@@ -62,7 +63,10 @@ describe('test/subapp.test.js', () => {
       return app.httpRequest()
         .get('/indexAsync?__app=demo.subapp.com')
         .expect(/hi, jambo/)
-        .expect(200);
+        .expect(200)
+        .expect(res => {
+          assert(res.headers.hasOwnProperty(app.config.globalMw.header) === false);
+        });
     });
 
     it('support generator middleware', () => {
@@ -76,7 +80,10 @@ describe('test/subapp.test.js', () => {
       return app.httpRequest()
         .get('/index.html?__app=demo.subapp.com')
         .expect(/hi, jambo/)
-        .expect(200);
+        .expect(200)
+        .expect(res => {
+          assert(res.headers.hasOwnProperty(app.config.globalMw.header));
+        });
     });
   });
 
