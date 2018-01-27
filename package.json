@@ -5,8 +5,7 @@
   "eggPlugin": {
     "name": "subapp",
     "dep": [
-      "view",
-      "nunjucks"
+      "view"
     ]
   },
   "keywords": [
