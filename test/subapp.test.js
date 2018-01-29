@@ -90,7 +90,7 @@ describe('test/subapp.test.js', () => {
   describe('service', () => {
     it('should ctx.subAppService.findUser work', () => {
       return app.httpRequest()
-        .get('/findUser?__app=demo.subapp.com')
+        .get('/findUser.json?__app=demo.subapp.com')
         .expect({
           name: 'jambo',
         })
@@ -116,7 +116,7 @@ describe('test/subapp.test.js', () => {
     });
     it('should ctx.subAppService.findUser work', () => {
       return app.httpRequest()
-        .get('/findUser?__app=second.subapp.com')
+        .get('/findUser.json?__app=second.subapp.com')
         .expect({
           name: 'jambo',
         })
