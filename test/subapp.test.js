@@ -51,6 +51,17 @@ describe('test/subapp.test.js', () => {
   });
 
   describe('router', () => {
+    it('should development.ignoreDirs right', () => {
+      assert.deepEqual(app.config.development.ignoreDirs, [
+        'app/demo.subapp.com/view',
+        'app/demo.subapp.com/views',
+        'app/demo.subapp.com/assets',
+        'app/second.subapp.com/view',
+        'app/second.subapp.com/views',
+        'app/second.subapp.com/assets',
+      ]);
+    });
+
     it('redirect should work', () => {
       return app.httpRequest()
         .get('/redirect')
@@ -126,4 +137,5 @@ describe('test/subapp.test.js', () => {
         });
     });
   });
+
 });
