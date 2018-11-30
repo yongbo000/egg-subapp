@@ -1,6 +1,6 @@
 {
-  "name": "egg-subapp",
-  "version": "1.2.2",
+  "name": "egg-engine",
+  "version": "1.0.0",
   "description": "help you create multi-site applications quickly and easily",
   "eggPlugin": {
     "name": "subapp",
@@ -54,12 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-subapp.git"
+    "url": "git+https://github.com/eggjs/egg-engine.git"
   },
-  "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
-  },
-  "homepage": "https://github.com/eggjs/egg-subapp#readme",
-  "author": "yongbo.hello@gmail.com",
   "license": "MIT"
 }
