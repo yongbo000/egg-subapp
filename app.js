@@ -1,13 +1,14 @@
 'use strict';
 
-const loadSubapps = require('./lib/util').loadSubapps;
+const { loadSubapps } = require('./lib/util');
 
 module.exports = app => {
   // 自动加载 subapp 中间件
   app.config.coreMiddleware.push('subApp');
 
   // 加载子应用目录
-  app.subApps = loadSubapps(app.baseDir);
+
+  app.subApps = loadSubapps(app);
 
   process.nextTick(() => {
     // 重写render
