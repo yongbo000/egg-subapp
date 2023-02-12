@@ -1,10 +1,11 @@
 'use strict';
 
 const path = require('path');
-const loadSubapps = require('../lib/util').loadSubapps;
 
 module.exports = appInfo => {
   const exports = {};
+
+  const subAppRootDir = path.join(appInfo.baseDir, 'app/subapp');
 
   exports.subApp = {
     virtualHosts: {
@@ -13,27 +14,15 @@ module.exports = appInfo => {
     middleware: {
       // 配置subapp的全局前置中间件，如 'demo.subapp.com': [ needLogin, ... ]
     },
+    rootDir: subAppRootDir,
   };
 
   exports.view = {
-    root: path.join(appInfo.baseDir, 'app'),
+    root: subAppRootDir,
     defaultViewEngine: 'nunjucks',
     mapping: {
       '.html': 'nunjucks',
     },
-  };
-
-  const subApps = loadSubapps(appInfo.baseDir);
-  const ignoreDirs = Array.from(subApps.values()).reduce((prev, next) => {
-    return prev.concat([
-      `app/${next.name}/view`,
-      `app/${next.name}/views`,
-      `app/${next.name}/assets`,
-    ]);
-  }, []);
-
-  exports.development = {
-    ignoreDirs,
   };
 
   return exports;

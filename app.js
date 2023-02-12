@@ -6,8 +6,11 @@ module.exports = app => {
   // 自动加载 subapp 中间件
   app.config.coreMiddleware.push('subApp');
 
+  // 子应用根目录
+  const rootDir = app.config.subApp.rootDir;
+
   // 加载子应用目录
-  app.subApps = loadSubapps(app.baseDir);
+  app.subApps = loadSubapps(rootDir);
 
   process.nextTick(() => {
     // 重写render

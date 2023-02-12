@@ -1,6 +1,6 @@
 {
   "name": "egg-subapp",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "help you create multi-site applications quickly and easily",
   "eggPlugin": {
     "name": "subapp",
@@ -46,8 +46,8 @@
   "files": [
     "app",
     "config",
-    "lib",
-    "app.js"
+    "app.js",
+    "lib"
   ],
   "ci": {
     "version": "8, 9"
