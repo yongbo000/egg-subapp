@@ -14,6 +14,7 @@
     "egg-plugin"
   ],
   "dependencies": {
+    "egg-bin": "^5.13.4",
     "egg-core": "^4.3.0",
     "egg-path-matching": "^1.0.1",
     "globby": "^7.1.1",
@@ -23,7 +24,6 @@
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "egg": "^2.2.0",
-    "egg-bin": "^4.3.7",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.14.0",
     "egg-view-nunjucks": "^2.1.4",
